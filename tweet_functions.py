@@ -41,7 +41,7 @@ def tsne_plot(model):
     labels = []
     tokens = []
 
-    for word in model.wv.vocab:
+    for word in model.vocab:
         tokens.append(model[word])
         labels.append(word)
 
