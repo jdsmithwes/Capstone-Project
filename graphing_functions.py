@@ -6,7 +6,7 @@ def plotly_line (df,x,y):
     fig = px.line(df,x=x, y=y)
     fig.show()
 
-def plotly_scatter(df,x,y,trendline,color,trendline):
+def plotly_scatter(df,x,y,trendline,color):
     """Function for creating a scatterplot in Plotly Express"""
     fig = px.scatter(df,x, y=y,color=color,trendline=trendline)
     fig.show()
