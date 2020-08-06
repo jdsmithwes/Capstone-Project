@@ -94,7 +94,8 @@ def EDA_Summary(data,title,output_file):
     data: Enter either the dataframe or the file that can be read into pandas
     title: use string for title you want to use
     output_file: use string for the file that will host output"""
-    
+
     data =  data
     profile = data.profile_report(title= title)
     profile.to_file(output_file= output_file)
+    profile.to_notebook_iframe()
