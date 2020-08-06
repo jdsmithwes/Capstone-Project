@@ -88,3 +88,13 @@ def display_closestwords_tsnescatterplot(model, word, size):
         plt.xlim(x_coords.min()+0.00005, x_coords.max()+0.00005)
         plt.ylim(y_coords.min()+0.00005, y_coords.max()+0.00005)
     plt.show()
+
+def EDA_Summary(data,title,output_file):
+    """Function to get panda profile for EDA purposes
+    data: Enter either the dataframe or the file that can be read into pandas
+    title: use string for title you want to use
+    output_file: use string for the file that will host output"""
+    
+    data =  data
+    profile = data.profile_report(title= title)
+    profile.to_file(output_file= output_file)
