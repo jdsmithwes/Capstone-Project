@@ -15,3 +15,13 @@ def Plotly_bar(df,x,y,title,color):
     """Function for creating a plotly express bar chart"""
     fig = px.bar(df, x=x, y=y, title=title,color=color)
     fig.show()
+
+
+def ROC_Curve (Model, X,y):
+    X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=.15)
+    model = Model
+    visualizer = ROCAUC(Model)
+
+    visualizer.fit(X_train, y_train)        # Fit the training data to the visualizer
+    visualizer.score(X_test, y_test)        # Evaluate the model on the test data
+    visualizer.show()
