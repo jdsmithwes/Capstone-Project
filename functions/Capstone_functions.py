@@ -1,6 +1,21 @@
 import plotly.io as pio
 import plotly.express as px
 import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.impute import SimpleImputer
+from sklearn.dummy import DummyRegressor
+from sklearn.compose import ColumnTransformer
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from yellowbrick.regressor import PredictionError
+from yellowbrick.classifier import ConfusionMatrix
+from yellowbrick.classifier import classification_report
+from yellowbrick.classifier import ROCAUC
+import xgboost as xgb
 
 def plotly_line (df,x,y):
     """Function that provides line graphs in Plotly Express"""
@@ -128,3 +143,15 @@ def EDA_Summary(data,title,output_file):
     profile = data.profile_report(title= title)
     profile.to_file(output_file= output_file)
     profile.to_notebook_iframe()
+
+def pickle_save(object,file):
+    """Function to save objects via pickling. The object is
+    the item you want to save. The file is the name of the file/path where
+    you want it stored"""
+
+    pickle.dump( object, open( "file.p", "wb" ) )
+
+def pickle_load(file):
+    """ Function to load pickled items."""
+
+    pickle.load( open( "file.p", "rb" ) )
