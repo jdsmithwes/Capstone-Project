@@ -16,6 +16,7 @@ from yellowbrick.classifier import ConfusionMatrix
 from yellowbrick.classifier import classification_report
 from yellowbrick.classifier import ROCAUC
 import xgboost as xgb
+import textfeatures as tf
 
 def plotly_line (df,x,y):
     """Function that provides line graphs in Plotly Express"""
@@ -184,3 +185,16 @@ def tsne_plot(model):
                      ha='right',
                      va='bottom')
     plt.show()
+
+def processing_tweets(data,column_to_process):
+    ''' function to preprocess tweet data
+        data: dataframe where tweets are located
+        column_to_process: column where text data is located'''
+    tf.word_count(data,column_to_process,'word_count')
+    tf.avg_word_length(data,column_to_process,'avg_word_length')
+    tf.stopwords_count(data,column_to_process,'stopwords_count')
+    tf.char_count(data,column_to_process,'char_count')
+    tf.stopwords(data,column_to_process,'stopwords')
+    tf.clean(data,column_to_process,'clean_text')
+
+    data.head()
