@@ -17,6 +17,10 @@ from yellowbrick.classifier import classification_report
 from yellowbrick.classifier import ROCAUC
 import xgboost as xgb
 import textfeatures as tf
+import nltk, re, string, collections
+from nltk.util import ngrams # function for making ngrams
+#from nltk import bigrams
+from nltk.tokenize import word_tokenize
 
 def plotly_line (df,x,y):
     """Function that provides line graphs in Plotly Express"""
@@ -198,3 +202,34 @@ def processing_tweets(data,column_to_process):
     tf.clean(data,column_to_process,'clean_text')
 
     data.head()
+
+
+def tweet_text_features(dataframe)
+#cleaning tweets
+processing_tweets(dataframe,'tweet')
+
+
+
+#measures of central tendency for text features - using median to prevent skewed results
+
+a=dataframe['retweets_count'].median()
+b=dataframe['likes_count'].median()
+c=dataframe['word_count'].median()
+d=dataframe['char_count'].median()
+e=dataframe['stopwords_count'].median()
+
+#creating dictionary for dataframe for barplot
+tweet_features = {dataframe'word_count':c, dataframe'char_count':d,dataframe'stopwords_count':e}
+tweet_features = pd.DataFrame.from_dict(tweet_features, orient='index')
+
+tweet_features.plot(kind='bar')
+plt.show()
+
+#Get tokens
+dataframe['tokens'] = dataframe['tweet'].fillna('').map(nltk.word_tokenize)
+tokens = list(dataframe['tokens'])
+
+#Get counts
+pos_list = nltk.pos_tag(tokens)
+pos_counts = nltk.FreqDist(tag for (word, tag) in pos_list)
+print ("the five most common tags are", pos_counts.most_common(5))
