@@ -127,8 +127,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# Capstone files
-_pyache_
-.ipynb_checkpoints
-.DS_store
