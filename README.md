@@ -8,7 +8,6 @@ I created specialized notebooks for various aspects of the analysis that are des
 
 - [Twitter Data Collection](Twitter_dataqueries_capstone.ipynb)
 - [Data Set Creation](Dataset_creation_notebook.ipynb)
-- [Poll Data](Web Scraping Notebook.ipynb)
 - [Explorator Data Analysis](EDA_notebook.ipynb)
 - [Modeling](Models.ipynb)
 
