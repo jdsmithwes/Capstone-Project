@@ -225,6 +225,7 @@ def tweet_text_features(dataframe):
     tweet_features = pd.DataFrame.from_dict(tweet_features, orient='index')
 
     tweet_features.plot(kind='bar')
+    plt.ylim([0,250])
     plt.show()
 
     #Get tokens
